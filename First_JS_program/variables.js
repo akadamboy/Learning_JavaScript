@@ -33,6 +33,9 @@ console.log(year); // this will return undefined since no value is assigned
 //--------------------------------------------------------//
 //--- let, var, const ----//
 
+let x,y; // we can define 2 variables like this
+
+
 let ageOfStudent = 30;
 ageOfStudent = 31;
 

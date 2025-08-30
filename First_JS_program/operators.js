@@ -35,7 +35,25 @@ console.log(age< 18);
 console.log(age <= 25);
 console.log(age <= 20);
 
+//--------------------------------//
 
+//---TEMPLATE LITERALS---//
+const myName = 'santhosh';
+console.log("my name is "+ myName +", my age is "+ age);
+//instead of this we can use
 
+console.log(`my name is ${myName} and my name is ${age}`)
+
+// printing multiple lines
+//old way
+console.log('hi my name i santhos \n\
+i am from kerala \n\
+my age is 25')
+
+//new way
+
+console.log(`hi my name is abraham
+i am from noida
+i love java script`)
 
 

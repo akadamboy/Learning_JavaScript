@@ -1,0 +1,52 @@
+const age = 15;
+
+const isLegalAge = age>= 18;
+
+if(isLegalAge) {
+    console.log('you can take driving license now');
+}
+else{
+    const yearsLeft = 18 - age;
+    console.log('you cannot take driving license now');
+    console.log(`you can take license in ${yearsLeft} years`);
+}
+
+// example for let and var difference
+
+// const birthYear = 2000;
+
+// if (birthYear <= 2000)
+//    { 
+//     let century = 20;
+// }else{
+//     let century = 21
+// }
+
+// console.log(century) 
+
+// the above code will give the error century not defined 
+// since let is only accesseble in the if else block.
+//we can use var or we can define the contury variable outside the if else block
+
+
+const birthYear = 2000;
+
+if (birthYear <= 2000)
+   { 
+    var century = 20;
+}else{
+    var century = 21;
+}
+console.log(century);
+//-----------------------------//
+const birthYear2 = 2001;
+let centuryNew;
+if (birthYear2 <= 2000)
+   { 
+    centuryNew = 20;
+}else{
+     centuryNew = 21;
+}
+console.log(centuryNew);
+
+
