@@ -9,3 +9,12 @@ let lastName = "Stark";
 
 alert(firstName+" "+lastName);
 
+const customerAge  = prompt('enter your age') // will give promt to enter age
+console.log(customerAge)
+console.log(typeof customerAge) // promt get the input as string, We need to do type conversion before doing operations
+
+const salesManAge = Number(prompt('enter sales man age'))
+console.log(salesManAge)
+console.log(typeof salesManAge)
+
+
