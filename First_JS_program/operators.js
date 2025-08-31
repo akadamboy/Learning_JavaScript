@@ -57,3 +57,24 @@ i am from noida
 i love java script`)
 
 
+//----------------- EQUALITY OPERATORS (== AND ===)-------//
+
+// === is Strict equality check value and type during comparison.
+// == lose qeuality operator -> will not check type and perform type coerscion to check value
+
+const myAge = 18;
+
+if (myAge === 18) console.log('You are of legal age 1'); // === Strict equality
+
+const myAge2 = '18'
+if (myAge === 18) console.log('You are of legal age 2');// will not print legal
+
+
+const myAge3 = '18'
+if (myAge == 18) console.log('You are of legal age 3 '); // will print legal since its lose equality
+//------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
