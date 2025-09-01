@@ -72,3 +72,16 @@ switch(day){
         console.log('enter a day');
         
 }
+
+//---------------------------------------------------//
+
+//---TERNARY OPERATOR---///
+
+const personAge = 20;
+
+personAge >= 18 ? console.log('you can take driving license') : console.log('you cannot take driving license');
+
+const drink = personAge >= 18 ? 'wine' : 'water';
+console.log(drink)
+
+console.log(`your age is ${personAge} and you can drink ${personAge >= 18 ? 'wine' : 'water'}`);
