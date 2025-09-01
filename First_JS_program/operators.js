@@ -75,6 +75,22 @@ if (myAge == 18) console.log('You are of legal age 3 '); // will print legal sin
 //------------------------------------------------------------------------------------------------------------------//
 
 
+const personAge = 18;
+
+if (personAge !== 18) console.log('You are not 18'); //Strict not equal to 
+
+const parentAge = '34'
+if (parentAge != 60) console.log('you are not that old') // lose non equality
 
 
+//------------------------------------------------------------------------------------------------//
+
+//----LOGICAL OPERATORS---//
+
+const hasDrivingLicense  = true
+const hasGoodVision = false
+
+console.log(hasDrivingLicense && hasGoodVision) //AND operator
+console.log(hasDrivingLicense || hasGoodVision) //OR operator
+console.log(!hasDrivingLicense) // NOT operator
 

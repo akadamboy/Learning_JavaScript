@@ -50,3 +50,25 @@ if (birthYear2 <= 2000)
 console.log(centuryNew);
 
 
+//----------------------------------------------------//
+
+//----switch statement----//
+
+const day = prompt('enter a day');
+
+switch(day){
+    case 'monday':
+        console.log('today is monday you need to go to office');
+        break;
+
+
+    //below case work for both sunday and saturday. no need to write different case 
+    case 'sunday':
+    case 'saturday':
+        console.log('today is holiday you dont need to go to office');
+        break
+    
+    default:
+        console.log('enter a day');
+        
+}

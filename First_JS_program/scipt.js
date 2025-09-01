@@ -17,4 +17,5 @@ const salesManAge = Number(prompt('enter sales man age'))
 console.log(salesManAge)
 console.log(typeof salesManAge)
 
+//-----------------------------------------------//
 
