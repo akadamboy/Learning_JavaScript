@@ -22,7 +22,7 @@ function verifyAge( userAge , gender){
 // this is called FUNCTION EXPRASSION
 const findAge = function (birthyear){
 
-    return 2025 - birthyear
+    return 2025 - birthyear;
 }
 
 
@@ -37,3 +37,20 @@ const birthyear = prompt('enter birth year');
 //  we need to declare the function before calling it.
 const age = findAge(birthyear);
 console.log(` your age is ${age}`);
+
+
+//------   ARROW FUNCTION   ------//
+
+
+const findAge2 = birthyear2 => 2025 - birthyear2;
+
+const age2 = findAge2(2001);
+console.log(age);
+
+const yearsUntilRetirement = (name, dob) =>{
+    const age = 2025 - dob;
+    const yearsLeft = 65 - age;
+    return `hi ${name} you have ${yearsLeft} years till retirement`;
+}
+
+console.log(yearsUntilRetirement('john', 2001 ));
