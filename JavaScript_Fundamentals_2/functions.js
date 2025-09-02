@@ -9,7 +9,7 @@ function getUser(){
 
 console.log(getUser());
 
-
+// this is called FUNCTION DECLARATION
 function verifyAge( userAge , gender){
 
     console.log(`user gender is ${gender}`);
@@ -18,6 +18,22 @@ function verifyAge( userAge , gender){
 }
 
 
+// assigning function to a variable
+// this is called FUNCTION EXPRASSION
+const findAge = function (birthyear){
+
+    return 2025 - birthyear
+}
+
+
 const userAge = prompt('enter your age');
 const gender = prompt('enter gender');
-verifyAge(userAge, gender)
+verifyAge(userAge, gender);
+
+const birthyear = prompt('enter birth year');
+
+// for normal functions we can call the function before declaration 
+// in below case where we assign function to variable name without a proper function name
+//  we need to declare the function before calling it.
+const age = findAge(birthyear);
+console.log(` your age is ${age}`);
