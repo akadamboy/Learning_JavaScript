@@ -1,3 +1,5 @@
+"use strict";
+
 //------   FOR LOOP.  -----//
 const studentNames = ["john", "alwin", "ray", "sam", "alwin"];
 
