@@ -1,11 +1,28 @@
 "use strict";
 
-const myNumber = Math.trunc(Math.random() * 20) + 1;
+let myNumber = Math.trunc(Math.random() * 20) + 1;
 
 // console.log(document.querySelector(".message").textContent);
 
-let score = Number(document.querySelector(".score").textContent);
-let highScore = document.querySelector(".highscore").textContent;
+const scoreElement = document.querySelector(".score");
+const highScoreElement = document.querySelector(".highscore");
+const checkButton = document.querySelector(".check");
+const resetButton = document.querySelector(".reset");
+const inputElement = document.querySelector(".guess");
+const messageElement = document.querySelector(".message");
+const secretNumber = document.querySelector(".number");
+
+let score = Number(scoreElement.textContent);
+let highScore = Number(highScoreElement.textContent);
+
+function GameOver() {
+  inputElement.disabled = true;
+  checkButton.disabled = true;
+  secretNumber.textContent = "?";
+  inputElement.value = "";
+  messageElement.textContent = "Game Over";
+  scoreElement.textContent = score;
+}
 // console.log(document.querySelector(".guess").value);
 
 // console.log(`score is ${score}`);
@@ -18,55 +35,48 @@ let highScore = document.querySelector(".highscore").textContent;
 
 // const check_button = document.getElementsByClassName("check")[0];
 
-const checkButton = document.querySelector(".check");
-const resetButton = document.querySelector(".reset");
-
 checkButton.addEventListener("click", function () {
-  const numberEntered = Number(document.querySelector(".guess").value);
+  const numberEntered = Number(inputElement.value);
   //   console.log(numberEntered);
   if (!numberEntered) {
-    document.querySelector(".message").textContent = "Please enter a number";
-  } else if (numberEntered > 20) {
-    document.querySelector(".message").textContent =
-      "Number > 20, only 1 to 20 allowed";
+    messageElement.textContent = "Please enter a number";
+  } else if (numberEntered > 20 || numberEntered < 1) {
+    messageElement.textContent = "Number > 20, only 1 to 20 allowed";
   } else if (numberEntered === myNumber) {
-    document.querySelector(".number").textContent = myNumber;
-    document.querySelector(".message").textContent = "🎉 Correct Number!";
-    document.querySelector(".score").textContent = score;
+    inputElement.disabled = true;
+    checkButton.disabled = true;
+    secretNumber.textContent = myNumber;
+    messageElement.textContent = "🎉 Correct Number!";
+    scoreElement.textContent = score;
     if (score > highScore) {
       highScore = score;
-      document.querySelector(".highscore").textContent = score;
+      highScoreElement.textContent = score;
     }
   } else if (numberEntered < myNumber) {
-    document.querySelector(".message").textContent = "Guess Heigher";
+    messageElement.textContent = "Guess Heigher";
     score--;
     if (score === 0) {
-      score = 20;
-      document.querySelector(".number").textContent = "?";
-      document.querySelector(".guess").value = "";
-      document.querySelector(".message").textContent = "Game Over";
-      document.querySelector(".score").textContent = score;
+      GameOver();
     }
-    document.querySelector(".score").textContent = score;
+    scoreElement.textContent = score;
   } else {
-    document.querySelector(".message").textContent = "Guess Lower";
+    messageElement.textContent = "Guess Lower";
     score--;
     if (score === 0) {
-      score = 20;
-      document.querySelector(".number").textContent = "?";
-      document.querySelector(".guess").value = "";
-      document.querySelector(".message").textContent = "Game Over";
-      document.querySelector(".score").textContent = score;
+      GameOver();
     }
 
-    document.querySelector(".score").textContent = score;
+    scoreElement.textContent = score;
   }
 });
 
 resetButton.addEventListener("click", function reset() {
+  myNumber = Math.trunc(Math.random() * 20) + 1;
   score = 20;
-  document.querySelector(".number").textContent = "?";
-  document.querySelector(".guess").value = "";
-  document.querySelector(".message").textContent = "Start guessing...";
-  document.querySelector(".score").textContent = score;
+  inputElement.disabled = false;
+  checkButton.disabled = false;
+  secretNumber.textContent = "?";
+  inputElement.value = "";
+  messageElement.textContent = "Start guessing...";
+  scoreElement.textContent = score;
 });
