@@ -22,6 +22,5 @@ closeButtonElement.addEventListener("click", closeModal);
 overlayElement.addEventListener("click", closeModal);
 
 document.addEventListener("keydown", function (event) {
-  console.log(event.key);
   if (event.key === "Escape") closeModal();
 });
