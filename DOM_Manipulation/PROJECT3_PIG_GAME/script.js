@@ -12,11 +12,12 @@ const player1CurrentScoreElement = document.getElementById("current--0");
 const player2ScoreElement = document.getElementById("score--1");
 const player2CurrentScoreElement = document.getElementById("current--1");
 
+const score = [0, 0];
 let player1Score = 0;
 let player2Score = 0;
 let player1CurrentScore = 0;
 let player2CurrentScore = 0;
-let activePlayer = 1;
+let activePlayer = 0; //0 for player1 and 1 for player2
 let currentScore = 0;
 
 function initGame() {
@@ -30,10 +31,19 @@ function initGame() {
 }
 
 const switchPlayer = function () {
-  player2Element.classList.add("player--active");
-  player1Element.classList.remove("player--active");
   currentScore = 0;
-  player1CurrentScoreElement.textContent = currentScore;
+  const currentPlayerElement = document.querySelector(
+    `.player--${activePlayer}`
+  );
+  const activePlyerCurrentScore = document.getElementById(
+    `current--${activePlayer}`
+  );
+  currentPlayerElement.classList.remove("player--active");
+  activePlyerCurrentScore.textContent = currentScore;
+
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  const nextPlayerElement = document.querySelector(`.player--${activePlayer}`);
+  nextPlayerElement.classList.add("player--active");
 };
 
 const roll = function () {};
@@ -46,16 +56,29 @@ rollDiceBtn.addEventListener("click", function () {
   diceElement.src = `dice-${diceValue}.png`;
   if (diceValue !== 1) {
     currentScore += diceValue;
-    player1CurrentScoreElement.textContent = currentScore;
+    const CurrentScoreElement = document.getElementById(
+      `current--${activePlayer}`
+    );
+    CurrentScoreElement.textContent = currentScore;
   } else {
     switchPlayer();
   }
 });
 
 holdBtn.addEventListener("click", function () {
-  player1Score += currentScore;
-  player1ScoreElement.textContent = player1Score;
-  player1CurrentScoreElement.textContent = 0;
-  currentScore = 0;
+  score[activePlayer] = score[activePlayer] + currentScore;
+  const currentPlayerScoreElement = document.getElementById(
+    `score--${activePlayer}`
+  );
+  currentPlayerScoreElement.textContent = score[activePlayer];
+  if (score[activePlayer] >= 20) {
+    const winnerElement = document.getElementById(`name--${activePlayer}`);
+    winnerElement.textContent = `PLAYER ${activePlayer + 1} WINS 🎉`;
+    rollDiceBtn.disabled = true;
+    holdBtn.disabled = true;
+  }
+
+  currentPlayerScoreElement.textContent = score[activePlayer];
+
   switchPlayer();
 });
