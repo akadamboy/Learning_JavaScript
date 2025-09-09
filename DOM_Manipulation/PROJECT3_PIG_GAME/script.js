@@ -12,21 +12,24 @@ const player1CurrentScoreElement = document.getElementById("current--0");
 const player2ScoreElement = document.getElementById("score--1");
 const player2CurrentScoreElement = document.getElementById("current--1");
 
-const score = [0, 0];
-let player1Score = 0;
-let player2Score = 0;
-let player1CurrentScore = 0;
-let player2CurrentScore = 0;
-let activePlayer = 0; //0 for player1 and 1 for player2
-let currentScore = 0;
+let score, activePlayer, currentScore;
 
 function initGame() {
+  score = [0, 0];
+  activePlayer = 0; //0 for player1 and 1 for player2
+  currentScore = 0;
   //reset all the scores
   player1ScoreElement.textContent = 0;
   player2ScoreElement.textContent = 0;
   player1CurrentScoreElement.textContent = 0;
   player2CurrentScoreElement.textContent = 0;
-
+  rollDiceBtn.disabled = false;
+  holdBtn.disabled = false;
+  player1Element.classList.remove("player--winner");
+  console.log(player1Element);
+  player2Element.classList.remove("player--winner");
+  player1Element.classList.add("player--active");
+  player2Element.classList.remove("player--active");
   diceElement.classList.add("hidden");
 }
 
@@ -45,8 +48,6 @@ const switchPlayer = function () {
   const nextPlayerElement = document.querySelector(`.player--${activePlayer}`);
   nextPlayerElement.classList.add("player--active");
 };
-
-const roll = function () {};
 
 initGame();
 
@@ -71,14 +72,14 @@ holdBtn.addEventListener("click", function () {
     `score--${activePlayer}`
   );
   currentPlayerScoreElement.textContent = score[activePlayer];
-  if (score[activePlayer] >= 20) {
-    const winnerElement = document.getElementById(`name--${activePlayer}`);
-    winnerElement.textContent = `PLAYER ${activePlayer + 1} WINS 🎉`;
+  if (score[activePlayer] >= 100) {
+    const winnerElement = document.querySelector(`.player--${activePlayer}`);
+    winnerElement.classList.add("player--winner");
     rollDiceBtn.disabled = true;
     holdBtn.disabled = true;
+  } else {
+    switchPlayer();
   }
-
-  currentPlayerScoreElement.textContent = score[activePlayer];
-
-  switchPlayer();
 });
+
+newGameBtn.addEventListener("click", initGame);
