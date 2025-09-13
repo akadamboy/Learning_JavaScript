@@ -51,35 +51,54 @@ const restaurant = {
 
 //ARRAY DESTRUCTURING//
 
-const arr = [1, 2, 3, 4, 5];
+// const arr = [1, 2, 3, 4, 5];
 
-const [a, b, c] = arr;
-console.log(a, b, c);
+// const [a, b, c] = arr;
+// console.log(a, b, c);
 
-let [first, , third] = restaurant.categories;
-console.log(first, third);
+// let [first, , third] = restaurant.categories;
+// console.log(first, third);
 
-[first, third] = [third, first];
-console.log(first, third);
-let [maindish, starter] = restaurant.order(2, 3);
+// [first, third] = [third, first];
+// console.log(first, third);
+// let [maindish, starter] = restaurant.order(2, 3);
 
-// nested destructuring
+// // nested destructuring
+// //-----------------------//
+// console.log(restaurant.order(1, 2));
+// console.log(maindish, starter);
+
+// const nested = [2, 3, [5, 6, 7]];
+
+// const [i, , j] = nested;
+// console.log(i, j);
+
+// const [x, , [y, z, n]] = nested;
+// console.log(x, y, z, n);
+
+// // default values
+// //-----------------------//
+
+// const arr1 = [2, 5];
+// const [p = 1, q = 2, r = 3] = arr1;
+
+// console.log(p, q, r);
+
+//-----destructuring objects------//
 //-----------------------//
-console.log(restaurant.order(1, 2));
-console.log(maindish, starter);
 
-const nested = [2, 3, [5, 6, 7]];
+//-------------here we have to use the same name as in the object
 
-const [i, , j] = nested;
-console.log(i, j);
+const { name, openingHours, starterMenu } = restaurant;
 
-const [x, , [y, z, n]] = nested;
-console.log(x, y, z, n);
+console.log(name, openingHours, starterMenu);
 
-// default values
-//-----------------------//
+///--------------------using different varuable name than object name--------------------//
 
-const arr1 = [2, 5];
-const [p = 1, q = 2, r = 3] = arr1;
+const {
+  name: restaurantName,
+  location: restLocation,
+  starterMenu: menu,
+} = restaurant;
 
-console.log(p, q, r);
+console.log(restLocation, restLocation, menu);
