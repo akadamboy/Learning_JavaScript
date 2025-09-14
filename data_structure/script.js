@@ -102,3 +102,25 @@ const {
 } = restaurant;
 
 console.log(restLocation, restLocation, menu);
+
+//=---- Mutating variables while destructuring----=//
+//--------------------------------//
+
+let a = 111;
+let b = 123;
+const obj = { a: 2, b: 8, c: 15 };
+// {a,b} = obj ; ---> this will throw error. seeing {}  javascript will expect a code block
+({ a, b } = obj);
+
+console.log(a, b);
+
+///--------------NESTED OBJECTS--------------//
+
+const { fri } = openingHours;
+console.log(fri);
+
+const {
+  thu: { open, close },
+} = openingHours;
+
+console.log(open, close);
