@@ -33,6 +33,15 @@ const restaurant = {
   order: function (mainDishIndex, sideDishIndex) {
     return [this.mainMenu[mainDishIndex], this.starterMenu[sideDishIndex]];
   },
+
+  // orderDelivery: function (obj) {
+  //   console.log(obj);
+  // },
+  orderDelivery: function ({ mainDishIndex, sideDishIndex, time, tableNum }) {
+    console.log(
+      `order received for table number ${tableNum} at ${time} o'clock are ${this.mainMenu[mainDishIndex]} and ${this.mainMenu[sideDishIndex]}`
+    );
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -124,3 +133,30 @@ const {
 } = openingHours;
 
 console.log(open, close);
+
+// giving different variable names
+
+const {
+  thu: { open: o, close: c },
+} = openingHours;
+
+console.log(o, c);
+
+restaurant.orderDelivery({
+  time: "2:00",
+  tableNum: 1,
+  mainDishIndex: 2,
+  sideDishIndex: 1,
+});
+
+///-------------SPREAD OPERATOR--------------///
+
+console.log(`----------spread operator------`);
+
+const values = [7, 8, 9];
+
+const spreadArray = [1, 3, 3, ...values];
+
+console.log(spreadArray); //--- print array as it is
+
+console.log(...spreadArray); // -- print elements of array separately
