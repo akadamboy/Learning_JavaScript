@@ -151,6 +151,8 @@ restaurant.orderDelivery({
 
 ///-------------SPREAD OPERATOR--------------///
 
+// we can use spread operator to expand an array into all its elements  or to combine multiple arrays into one array
+
 console.log(`----------spread operator------`);
 
 const values = [7, 8, 9];
@@ -160,3 +162,16 @@ const spreadArray = [1, 3, 3, ...values];
 console.log(spreadArray); //--- print array as it is
 
 console.log(...spreadArray); // -- print elements of array separately
+
+//---spread on strings----///
+
+//-----  SPREAD only work to make arrays and if passed into a funciton----//
+
+const name1 = "stephen";
+
+const letters = [...name1]; //. making array
+console.log(letters);
+
+console.log(...name1); //  passing to log function
+
+// console.log(`letters are ${...name1}`)   ---> this will not work
