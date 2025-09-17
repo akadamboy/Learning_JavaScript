@@ -42,6 +42,10 @@ const restaurant = {
       `order received for table number ${tableNum} at ${time} o'clock are ${this.mainMenu[mainDishIndex]} and ${this.mainMenu[sideDishIndex]}`
     );
   },
+
+  orderPasta: function name(ing1, ing2, ing3) {
+    console.log(`here is your pasta with ${ing1} ,${ing2} and ${ing3}`);
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -56,6 +60,12 @@ const restaurant = {
       close: 24,
     },
   },
+};
+
+const restaurant2 = {
+  owner: "jhon",
+  place: "kerala",
+  ...restaurant,
 };
 
 //ARRAY DESTRUCTURING//
@@ -175,3 +185,27 @@ console.log(letters);
 console.log(...name1); //  passing to log function
 
 // console.log(`letters are ${...name1}`)   ---> this will not work
+
+console.log("----------preparing pasta----------");
+
+const ingredients = [
+  prompt("enter pasta ingredient 1"),
+  prompt("enter pasta ingredient 2"),
+  prompt("enter pasta ingredient 3"),
+];
+
+console.log("----------passing using normal way----------");
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+
+console.log("----------passing using spread operator way----------");
+
+restaurant.orderPasta(...ingredients);
+
+console.log("----------spreading objects----------");
+
+console.log("---original restaurent");
+console.log(restaurant);
+
+console.log("---after spreading");
+console.log(restaurant2);
