@@ -46,6 +46,10 @@ const restaurant = {
   orderPasta: function name(ing1, ing2, ing3) {
     console.log(`here is your pasta with ${ing1} ,${ing2} and ${ing3}`);
   },
+  orderPizza: function (mainIngredient, ...addOns) {
+    console.log(mainIngredient);
+    console.log(addOns);
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -209,3 +213,41 @@ console.log(restaurant);
 
 console.log("---after spreading");
 console.log(restaurant2);
+
+//-------------------------------------------------//
+
+//---- Rest Pattern AND PARAMETERS----//
+//--------------------------------//
+
+//.     spread expands things
+//.     rest compress things
+
+console.log("-------------Rest Pattern AND PARAMETERS----//");
+
+const restarr = [1, 2, ...[3, 4]]; // spread becauseon ... is on the left hand of assignment
+
+console.log(restarr);
+
+const [a1, b1, ...others] = [1, 2, 3, 4, 5]; // using the rest.  Rest should come as the last element
+console.log(a1, b1, others);
+
+const add = function (...numbers) {
+  // RESTING
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 4, 5, 6);
+
+add(5, 6, 2, 3, 4, 5, 6, 7, 8, 9);
+
+const x = [23, 45, 26, 23, 27];
+
+add(...x); // SPREADING
+
+restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
+
+restaurant.orderPizza("mushrooms");
