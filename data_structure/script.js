@@ -251,3 +251,46 @@ add(...x); // SPREADING
 restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 
 restaurant.orderPizza("mushrooms");
+
+//--------------------------------------------------------------------------//
+
+// Short Circuiting (&& and ||)//
+//--------------------------------//
+
+console.log("-------------Short Circuiting (&& and ||)----//");
+
+// || operator will return the first truthy value it encounters
+// if all values are falsy it will return the last value
+
+console.log(3 || "stephen");
+console.log("" || "stephen");
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || "" || "hello" || 23 || null);
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+// restaurant.numGuests = 23;
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// && operator will return the first falsy value it encounters
+// if all values are truthy it will return the last value
+
+console.log("-------------AND operator----//");
+
+console.log(0 && "stephen");
+console.log(7 && "stephen");
+console.log("hello" && 23 && null && "stephen");
+console.log("hello" && 23 && true && "stephen");
+
+// practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+// this will work only if orderPizza exists
+
+//--------------------------------------------------------------------------//
