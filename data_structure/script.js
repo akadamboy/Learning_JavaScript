@@ -294,3 +294,43 @@ restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
 // this will work only if orderPizza exists
 
 //--------------------------------------------------------------------------//
+
+// The Nullish Coalescing Operator (??)//
+//--------------------------------//
+
+console.log("-------------Nullish Coalescing Operator (??)----//");
+
+restaurant.numGuests = 0;
+const guests3 = restaurant.numGuests || 10;
+console.log(guests3); // it will print 10 because 0 is a falsy value
+
+const guests4 = restaurant.numGuests ?? 10;
+console.log(guests4); // it will print 0 because nullish values are only null and undefined
+
+//--------------------------------------------------------------------------//
+
+// Logical Assignment Operators //
+//--------------------------------//
+
+console.log("-------------Logical Assignment Operators----//");
+
+const rest1 = {
+  name: "capri",
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: "la piazza",
+  owner: "jhon",
+};
+
+// OR assignment operator.  assign value if the current value is falsy
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// Nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
