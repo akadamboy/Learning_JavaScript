@@ -96,9 +96,18 @@ console.log(team1);
 console.log(draw);
 console.log(team2);
 
+//6
 const printGoals = function (...players) {
-  //    const players... = players
+  for (const player of players) {
+    console.log(player);
+  }
   console.log(`${players.length} number of goals scored`);
 };
 
 printGoals(...game.scored);
+
+//7
+
+team1 < team2 && console.log(`team 1 will win`);
+
+team1 > team2 && console.log(`team 2 will win`);

@@ -344,3 +344,26 @@ rest2.owner &&= "<ANONYMOUS>";
 
 console.log(rest1);
 console.log(rest2);
+
+/////-----------for of loop------------------////
+console.log("-------------for of loop----//");
+
+const allMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of allMenu) {
+  console.log(item);
+}
+
+console.log(`entries funciton`);
+console.log(
+  ` it is an array iterator,,,, we will get an array with the index and the actual data`
+);
+console.log([...allMenu.entries()]);
+
+for (const item of allMenu.entries()) {
+  console.log(item);
+}
+
+for (const [i, item] of allMenu.entries()) {
+  console.log(`${i + 1}: ${item}`);
+}
