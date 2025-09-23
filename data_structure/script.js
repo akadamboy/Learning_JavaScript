@@ -416,3 +416,21 @@ for (const day in days) {
 
   console.log(`opening time on ${day} is at ${open}`);
 }
+
+/////-----------Looping Objects: Object Keys, Values, and Entries------------------////
+console.log(
+  "-------------Looping Objects: Object Keys, Values, and Entries----//"
+);
+
+const properties = Object.keys(openingHours); // loops through keys
+
+const allProperties = Object.entries(openingHours); // loop thorugh all keys and values
+const valueProperites = Object.values(openingHours); // loop though all the values
+
+console.log(properties);
+console.log(allProperties);
+console.log(valueProperties);
+
+for (const day of properties) {
+  console.log(day);
+}
