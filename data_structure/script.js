@@ -21,7 +21,31 @@ const mexicanFoods = new Set([
   "avocado",
   "garlic",
 ]);
+const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
+const openingHours = {
+  [weekdays[2]]: {
+    open: 12,
+    close: 22,
+  },
+  [`day-${2 + 2}`]: {
+    open: 11,
+    close: 23,
+  },
+
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 // Data needed for first part of the section
 const restaurant = {
   name: "Classico Italiano",
@@ -50,19 +74,17 @@ const restaurant = {
     console.log(mainIngredient);
     console.log(addOns);
   },
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
+
+  //before ES6
+  // openingHours: openingHours,
+
+  //ES6 enhanced object literals
+  openingHours,
+
+  // new method syntax in objects ES6 . no need to use function keyword
+  orderNoodles(mainIngredient, ...addOns) {
+    console.log(mainIngredient);
+    console.log(addOns);
   },
 };
 
@@ -112,9 +134,9 @@ const restaurant2 = {
 
 //-------------here we have to use the same name as in the object
 
-const { name, openingHours, starterMenu } = restaurant;
+const { name, openingHours1, starterMenu } = restaurant;
 
-console.log(name, openingHours, starterMenu);
+console.log(name, openingHours1, starterMenu);
 
 ///--------------------using different varuable name than object name--------------------//
 
