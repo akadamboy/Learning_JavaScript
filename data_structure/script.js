@@ -389,3 +389,30 @@ for (const item of allMenu.entries()) {
 for (const [i, item] of allMenu.entries()) {
   console.log(`${i + 1}: ${item}`);
 }
+
+/////-----------Optional Chaining------------------////
+console.log("-------------Optional Chaining----//");
+
+console.log(restaurant.openingHours.mon); // it will give error because there is no mon property
+
+// console.log(restaurant.openingHours.mon.open); // it will give error because there is no mon property
+
+// with optional chaining
+console.log(restaurant.openingHours?.mon); // it will return undefined instead of error
+
+console.log(restaurant.openingHours?.mon?.open); // it will return undefined instead of error
+
+// example
+
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+for (const day in days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+
+  console.log(`opening time on ${day} is at ${open}`);
+}
